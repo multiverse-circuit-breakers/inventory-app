@@ -3,11 +3,6 @@ const router = express.Router();
 
 const { Item } = require("../models");
 
-// GET /items
-router.get("/", async (req, res) => {
-  res.send("Hello, World!");
-});
-
 // POST /items
 router.post("/", async (req, res) => {
   try {
