@@ -1,15 +1,30 @@
-const express = require('express')
-const router = express.Router()
-const { Item } = require('../models')
+const express = require("express");
+const router = express.Router();
 
-//GET route for viewing all items
-router.get('/items', async (res, req) => {
-    try {
-        const items = await Item.findAll()
-        res.send(items)
-    } catch (error){
-        console.error(error)
-    }
-})
+const { Item } = require("../models");
+
+// GET /items
+router.get("/", async (req, res) => {
+  res.send("Hello, World!");
+});
+
+// POST /items
+router.post("/", async (req, res) => {
+  try {
+    // validate the request body first
+    // .
+    // .
+    // .
+    // then create a new item
+    const item = Item.create(req.body);
+    // then send back the new item in the response
+    res.json(item);
+  } catch (err) {
+    console.log(err);
+    res
+      .status(400)
+      .json({ message: "Something went wrong in your request", error: err });
+  }
+});
 
 module.exports = router;
