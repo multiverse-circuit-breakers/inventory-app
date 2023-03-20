@@ -3,3 +3,13 @@
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
 }
+
+.list {
+  border: 2px solid red;
+  width: 40%;
+  margin: 10px 0;
+}
+
+.img {
+  width: 40%;
+}
