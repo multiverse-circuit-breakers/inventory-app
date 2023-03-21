@@ -2,10 +2,11 @@
 // request will be POSTed to /api/items
 
 import React, { useState } from "react";
+import apiURL from "../api";
 
 const initialState = {
-  name: "",
-  desc: "",
+  title: "",
+  description: "",
   price: 0,
   category: "",
   image: "",
@@ -17,32 +18,41 @@ export const AddForm = () => {
   const handleSubmit = async (e) => {
     // prevent form from refreshing page
     e.preventDefault();
-    await fetch("/api/items", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formObject),
-    });
+    try {
+      await fetch(`${apiURL}/items`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formObject),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
+      <label htmlFor="title">Title</label>
       <input
         type="text"
-        name="name"
-        value={formObject.name}
-        onChange={(e) => setFormObject({ name: e.target.value, ...formObject })}
+        name="title"
+        value={formObject.title}
+        onChange={handleChange}
         required
       />
-      <label htmlFor="desc">Description</label>
+      <label htmlFor="description">Description</label>
       <input
         type="text"
-        name="desc"
+        name="description"
         required
-        value={formObject.desc}
-        onChange={(e) => setFormObject({ desc: e.target.value, ...formObject })}
+        value={formObject.description}
+        onChange={handleChange}
       />
       <label htmlFor="price">Price</label>
       <input
@@ -50,9 +60,7 @@ export const AddForm = () => {
         name="price"
         required
         value={formObject.price}
-        onChange={(e) =>
-          setFormObject({ price: e.target.value, ...formObject })
-        }
+        onChange={handleChange}
       />
       <label htmlFor="category">Category</label>
       <input
@@ -60,9 +68,7 @@ export const AddForm = () => {
         name="category"
         required
         value={formObject.category}
-        onChange={(e) =>
-          setFormObject({ category: e.target.value, ...formObject })
-        }
+        onChange={handleChange}
       />
       <label htmlFor="image">Link to Image</label>
       <input
@@ -70,9 +76,7 @@ export const AddForm = () => {
         name="image"
         required
         value={formObject.image}
-        onChange={(e) =>
-          setFormObject({ image: e.target.value, ...formObject })
-        }
+        onChange={handleChange}
       />
       <button type="submit">Submit New Item</button>
     </form>
