@@ -14,6 +14,16 @@ router.get('/', async (req, res) => {
     }
 })
 
+//GET route for viewing individual items
+router.get('/items', async (res, req) => {
+    try {
+        const item = await Item.findByPk(req.params.id);
+        res.send(item);
+    } catch (error) {
+        console.error(error);
+    }
+})
+
 router.delete("/:id", async (req, res) => {
     const id = req.params.id;
     const findItem = await Item.findByPk(id);
