@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
 });
 
 // UPDATE /items/:id
-router.post("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   const { id } = req.params;
   // get the item
   const oldItem = await Item.findByPk(id);
