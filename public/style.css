@@ -5,11 +5,33 @@
 }
 
 .list {
-  border: 2px solid red;
-  width: 40%;
-  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  width: 25rem;
+  height: 28rem;
+  margin: 2em 1em;
+  display: inline-block;
 }
 
-.img {
-  width: 40%;
+#img {
+  width: 30%;
+} 
+
+.heading {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#heading2 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.list-items {
+  font-size: small;
+  padding: 1em 1em;
+  text-align: center;
 }
