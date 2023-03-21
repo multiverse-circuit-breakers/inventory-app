@@ -28,9 +28,9 @@ router.post("/", async (req, res) => {
 
     if (missing) {
       // return missing fields without comma using slice
-      return res
-        .status(400)
-        .json({ message: `Missing fields: ${missing.slice(0, -2)}` });
+      const error = `Missing fields: ${missing.slice(0, -2)}`;
+      console.log(error);
+      return res.status(400).json({ error });
     }
     // then create a new item
     const item = await Item.create(req.body);
