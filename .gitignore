@@ -5,6 +5,9 @@ node_modules/
 .env
 dist
 .cache
+.parcel-cache/data.mdb
 
 #sqlite
 *.sqlite
+.parcel-cache
+.parcel-cache
