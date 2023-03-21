@@ -26,6 +26,10 @@ export const AddForm = () => {
         },
         body: JSON.stringify(formObject),
       });
+
+      // reset form
+      useState({ ...initialState });
+      // TODO: redirect back to home
     } catch (err) {
       console.log(err);
     }
