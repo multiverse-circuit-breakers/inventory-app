@@ -21,13 +21,22 @@ export const EditForm = ({ id }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`${apiURL}/items/${id}`, {
+      const res = await fetch(`${apiURL}/items/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify({ [currentItemProp]: currentItemValue }),
       });
+
+      const data = await res.json();
+      if (data.error) {
+        alert("Failed To Update Item");
+      } else {
+        alert("Item Updated Successfully");
+      }
+      setCurrentItemProp(itemPropList[0]);
+      setCurrentItemValue("");
     } catch (err) {
       console.log(err);
     }
