@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     // validate the request body first
+    // TODO: probably better to add in using express-validator instead
     let missing = "";
     const requiredFields = [
       "title",
