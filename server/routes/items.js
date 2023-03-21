@@ -44,4 +44,15 @@ router.post("/", async (req, res) => {
   }
 });
 
+// UPDATE /items/:id
+router.post("/:id", async (req, res) => {
+  const { id } = req.params;
+  // get the item
+  const oldItem = await Item.findByPk(id);
+  // update using body
+  // update should ignore anything besides correct params
+  const updatedItem = await oldItem.update(req.body);
+  res.json(updatedItem);
+});
+
 module.exports = router;
