@@ -1,8 +1,10 @@
 import apiURL from "../api";
+import { ItemsList } from "./ItemsList";
+import React, { useState, useEffect } from "react";
+
 // import and prepend the api url to any fetch calls
 
 export const MainView = () => {
-  const [sauces, setSauces] = useState([]);
   const [items, setItems] = useState([]);
 
   async function fetchSauces() {
