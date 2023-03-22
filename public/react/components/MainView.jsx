@@ -7,20 +7,6 @@ import React, { useState, useEffect } from "react";
 export const MainView = () => {
   const [items, setItems] = useState([]);
 
-  async function fetchSauces() {
-    try {
-      const response = await fetch(`${apiURL}/sauces`);
-      const saucesData = await response.json();
-      setSauces(saucesData);
-    } catch (err) {
-      console.log("Oh no an error! ", err);
-    }
-  }
-
-  useEffect(() => {
-    fetchSauces();
-  }, []);
-
   //GET fetch request for all items
   async function fetchItems() {
     try {
