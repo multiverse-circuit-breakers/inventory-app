@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { SaucesList } from './SaucesList';
 import { ItemsList } from './ItemsList'
 import { Item } from './Item'
+import { NavBar } from './Navbar'
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
@@ -40,11 +41,12 @@ export const App = () => {
 		fetchItems();
 	}, []);
 
-	return (
-		<main>	
-      		<h1 className='heading'>Sauce Store</h1>
-			<h3 id='heading2'>All things 🔥</h3>
+	return ( <>
+		<h1 className='heading'>Sauce Store</h1>
+		<div><hr className='title-line'></hr></div>
+		<NavBar />
+		<main className='wrapper'>
 			<ItemsList items={items} />
 		</main>
-	)
+	</> )
 }

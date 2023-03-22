@@ -2,36 +2,126 @@
   margin: 0;
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
+  font-family: Italic Helvetica;
+  background-color:#2A3C29;
 }
-
-.list {
-  display: flex;
-  flex-direction: row;
-  border: 2px solid black;
-  width: 25rem;
-  height: 28rem;
-  margin: 2em 1em;
-  display: inline-block;
+.title-line {
+  border: 1px solid #957777;
+  margin: 2%;
 }
-
-#img {
-  width: 30%;
-} 
-
 .heading {
+  margin-top: 2%;
   font-size: 2.5em;
   font-weight: bold;
   text-align: center;
-  text-decoration: underline;
+  position: inherit;
+  color: #AD9B7F
 }
 
-#heading2 {
+/* div on all of the items */
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: auto;
+  justify-content: center;
+}
+
+/* inside the item - all content for each item */
+.list {
+  display: flex;
+  flex-direction: row;
+  border: 4px solid #AD9B7F;
+  width: 25rem;
+  height: 25rem;
+  margin: 2em 1em;
+  display: inline-block;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 5%;
+  background-color: #F2F2F2;
+}
+
+#img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 57%;
+  height: 50%;
+  border-radius: 3%;
+} 
+
+.item-line { 
+  border: 1.1px solid #957777;
+  margin-top: 5%;
+}
+
+.item-title {
+  font-size: 1rem;
   font-weight: bold;
+  color: #2A3C29;
   text-align: center;
+  padding: 3%;
+  background-color: #F2F2F2;
 }
 
-.list-items {
-  font-size: small;
-  padding: 1em 1em;
+.item-description {
+  font-size: xx-small;
+  font-style: italic;
+  padding: 2%;
+  background-color: #F2F2F2;
+}
+
+.item-price {
+  font-size: large;
   text-align: center;
+  font-weight: bold;
+  font-style: oblique;
+  padding: 2%;
+  background-color: #F2F2F2;
+}
+
+.item-category {
+  font-size: small;
+  text-align: center;
+  background-color: #F2F2F2;
+  font-style: italic;
+}
+
+.nav {
+  background-color:#2A3C29;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 0 1rem;
+  margin: auto;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+li {
+  display: inline;
+}
+
+a {
+  display: block;
+  padding: 8px;
+}
+
+/* the text itself */
+.nav a {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+li a:hover {
+  background-color: #957777;
 }

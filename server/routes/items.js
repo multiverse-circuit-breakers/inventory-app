@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 const express = require('express')
-const router = express.Router()
 const { Item } = require('../models')
+const router = express.Router();
 
 //GET route for viewing all items
 router.get('/', async (req, res) => {
@@ -13,17 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-module.exports = router;
-=======
-const express = require("express");
-const router = express.Router();
-
-const { Item } = require("../models");
-
 // get /items
-
-
-
 router.get('/items', async (res, req) => {
   try {
     const item = await Item.findByPk(req.params.id);
@@ -85,5 +74,5 @@ router.delete("/:id", async (req, res) => {
   const deleteItem = await findItem.destroy();
   res.json(deleteItem);
 })
+
 module.exports = router;
->>>>>>> d2ec51321e9d229edf0537086ba10ad31a5ac7a3
