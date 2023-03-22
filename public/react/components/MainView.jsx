@@ -1,6 +1,7 @@
 import apiURL from "../api";
 import { ItemsList } from "./ItemsList";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // import and prepend the api url to any fetch calls
 
@@ -29,6 +30,9 @@ export const MainView = () => {
         <h3 id="heading2">All things 🔥</h3>
         <ItemsList items={items} />
       </main>
+      <Link to="/item/add">
+        <button>Add Item</button>
+      </Link>
     </>
   ) : (
     <p>Loading...</p>
