@@ -9,7 +9,7 @@ const itemPropList = ["title", "description", "price", "category", "image"];
 // Form should have option selector which sets state to whatever property needs to change
 import React, { useState } from "react";
 export const EditForm = () => {
-  const id = parseInt(useParams().id) + 1;
+  const { id } = useParams();
 
   const [currentItemProp, setCurrentItemProp] = useState(itemPropList[0]);
   const [currentItemValue, setCurrentItemValue] = useState("");

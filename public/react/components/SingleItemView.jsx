@@ -32,7 +32,7 @@ const ActionButtons = ({ id }) => {
 
 export const SingleItemView = () => {
   const [item, setItem] = useState(null);
-  const id = parseInt(useParams().id) + 1;
+  const { id } = useParams();
 
   const fetchItem = async () => {
     console.log("fetching item", id);
