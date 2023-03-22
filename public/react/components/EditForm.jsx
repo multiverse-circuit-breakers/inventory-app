@@ -40,7 +40,7 @@ export const EditForm = () => {
       } else {
         alert("Item Updated Successfully");
       }
-      redirect(`/items/${id}`);
+      redirect(`/item/${id}`);
     } catch (err) {
       console.log(err);
     }

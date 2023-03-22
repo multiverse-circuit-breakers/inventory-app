@@ -22,7 +22,7 @@ const ActionButtons = ({ id }) => {
 
   return (
     <div>
-      <Link to={`items/${id}/edit`}>
+      <Link to={`/item/${id}/edit`}>
         <button>Edit</button>
       </Link>
       <button onClick={deleteAction}>Delete</button>
