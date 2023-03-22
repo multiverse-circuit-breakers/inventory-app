@@ -12,6 +12,21 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET item by id
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const item = await Item.findByPk(id);
+    if (item == null)
+      return res.status(404).json({ message: "Item not found" });
+    return res.json(item);
+  } catch (err) {
+    return res
+      .status(400)
+      .json({ message: "Something went wrong in your request", error: err });
+  }
+});
+
 // POST /items
 router.post("/", async (req, res) => {
   try {
@@ -42,21 +57,6 @@ router.post("/", async (req, res) => {
   } catch (err) {
     console.log(err);
     res
-      .status(400)
-      .json({ message: "Something went wrong in your request", error: err });
-  }
-});
-
-// GET item by id
-router.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    const item = await Item.findByPk(id);
-    if (item == null)
-      return res.status(404).json({ message: "Item not found" });
-    return res.json(item);
-  } catch (err) {
-    return res
       .status(400)
       .json({ message: "Something went wrong in your request", error: err });
   }
