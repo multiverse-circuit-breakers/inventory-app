@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import apiURL from "../api";
 
 // redirect sends back to the id view after form is done
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   title: "",
@@ -17,6 +17,7 @@ const initialState = {
 
 export const AddForm = () => {
   const [formObject, setFormObject] = useState(initialState);
+  const redirect = useNavigate();
 
   const handleSubmit = async (e) => {
     // prevent form from refreshing page
