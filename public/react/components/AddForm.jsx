@@ -4,6 +4,9 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
+// redirect sends back to the id view after form is done
+import { redirect } from "react-router-dom";
+
 const initialState = {
   title: "",
   description: "",
@@ -28,8 +31,8 @@ export const AddForm = () => {
       });
 
       // reset form
-      useState({ ...initialState });
       // TODO: redirect back to home
+      redirect("/");
     } catch (err) {
       console.log(err);
     }
