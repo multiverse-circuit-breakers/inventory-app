@@ -3,12 +3,14 @@
 import apiURL from "../api";
 
 // redirect sends back to the id view after form is done
-import { redirect } from "react-router-dom";
+import { useParams, redirect } from "react-router-dom";
 const itemPropList = ["title", "description", "price", "category", "image"];
 
 // Form should have option selector which sets state to whatever property needs to change
 import React, { useState } from "react";
-export const EditForm = ({ id }) => {
+export const EditForm = () => {
+  const id = parseInt(useParams().id) + 1;
+
   const [currentItemProp, setCurrentItemProp] = useState(itemPropList[0]);
   const [currentItemValue, setCurrentItemValue] = useState("");
 
