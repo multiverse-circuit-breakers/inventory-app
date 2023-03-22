@@ -5,14 +5,14 @@ import React, { useState, useEffect } from "react";
 // import and prepend the api url to any fetch calls
 
 export const MainView = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(null);
 
   //GET fetch request for all items
   async function fetchItems() {
     try {
       const res = await fetch(`${apiURL}/items`);
       const itemsData = await res.json();
-      setItems(() => itemsData);
+      setItems(() => [...itemsData]);
     } catch (err) {
       console.log("Error!", err);
     }
@@ -22,7 +22,7 @@ export const MainView = () => {
     fetchItems();
   }, []);
 
-  return (
+  return items ? (
     <>
       <main>
         <h1 className="heading">Sauce Store</h1>
@@ -30,5 +30,7 @@ export const MainView = () => {
         <ItemsList items={items} />
       </main>
     </>
+  ) : (
+    <p>Loading...</p>
   );
 };
