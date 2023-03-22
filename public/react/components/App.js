@@ -1,7 +1,8 @@
 //  this file (app) should only have routes
 // main view should have itemslist etc
 import { MainView } from "./MainView";
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { SingleItemView } from "./SingleItemView";
 
 // this shows how to get id from url with useParam
 // Link will be inside itemslist in this format:
@@ -9,23 +10,13 @@ import { Route, Routes, useParams } from "react-router-dom";
 //   <Link to={`/item/${id}`}>Link to: {id}</Link>
 // ))}
 
-const Item = () => {
-  const { id } = useParams();
-
-  return (
-    <div>
-      <h1>This is the id: {id}</h1>
-    </div>
-  );
-};
-
 export const App = () => {
   // routes is how react-router renders the element and changes the url without reloading the page
   return (
     <main>
       <Routes>
         <Route path="/" element={<MainView />} />
-        <Route path="/item/:id" element={<Item />} />
+        <Route path="/item/:id" element={<SingleItemView />} />
       </Routes>
     </main>
   );
