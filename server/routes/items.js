@@ -1,37 +1,16 @@
-<<<<<<< HEAD
-const express = require('express')
-const router = express.Router()
-const { Item } = require('../models')
-
-//GET route for viewing all items
-router.get('/', async (req, res) => {
-    try {
-        const items = await Item.findAll()
-        res.send(items)
-    } catch (error){
-        console.error(error)
-    }
-});
-
-module.exports = router;
-=======
 const express = require("express");
 const router = express.Router();
-
 const { Item } = require("../models");
 
-// get /items
-
-
-
-router.get('/items', async (res, req) => {
+//GET route for viewing all items
+router.get("/", async (req, res) => {
   try {
-    const item = await Item.findByPk(req.params.id);
-    res.send(item);
+    const items = await Item.findAll();
+    res.send(items);
   } catch (error) {
     console.error(error);
   }
-})
+});
 
 // POST /items
 router.post("/", async (req, res) => {
@@ -84,6 +63,5 @@ router.delete("/:id", async (req, res) => {
   const findItem = await Item.findByPk(id);
   const deleteItem = await findItem.destroy();
   res.json(deleteItem);
-})
+});
 module.exports = router;
->>>>>>> d2ec51321e9d229edf0537086ba10ad31a5ac7a3
