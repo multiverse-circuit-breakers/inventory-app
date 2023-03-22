@@ -52,6 +52,8 @@ router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const item = await Item.findByPk(id);
+    if (item == null)
+      return res.status(404).json({ message: "Item not found" });
     return res.json(item);
   } catch (err) {
     return res
