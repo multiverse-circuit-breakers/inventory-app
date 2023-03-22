@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 export const ItemsList = ({ items }) => {
   return (
     <>
-      {items.map((item, id) => (
-        <Link to={`/item/${id}`}>
-          <Item item={item} key={id} />
+      {items.map((item) => (
+        <Link key={item.id} to={`/item/${item.id}`}>
+          <Item item={item} key={item.title} />
         </Link>
       ))}
     </>
