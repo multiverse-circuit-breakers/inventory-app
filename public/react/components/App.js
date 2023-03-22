@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ItemsList } from "./ItemsList";
-import { Route, Routes, Link, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
-
-const ComponentWithID = () => {
-  const { id } = useParams();
-  return <div>ID is {id}</div>;
-};
 
 export const App = () => {
   const [sauces, setSauces] = useState([]);
@@ -46,6 +41,10 @@ export const App = () => {
   return (
     <div>
       <Routes>
+        {/* TODO: create main view */}
+        {/* this file (app) should only have routes */}
+        {/* main view should have itemslist etc */}
+        <Route path="/" element={<ItemsList items={items} />} />
         {/* TODO: this will link to an item component  */}
         {/* Link will be inside itemslist in this format: */}
         {/* {items.map((id) => ( */}
