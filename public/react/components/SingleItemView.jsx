@@ -49,6 +49,7 @@ export const SingleItemView = () => {
   return item ? (
     <div>
       <h1>Title: {item.title}</h1>
+      <h3>Category: {item.category}</h3>
       <img src={item.image} alt={item.title} />
       <ActionButtons id={id} />
       <p>Price: ${item.price}</p>
