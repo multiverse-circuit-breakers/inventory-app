@@ -1,6 +1,5 @@
 //  this file (app) should only have routes
 // main view should have itemslist etc
-import React, { useState, useEffect } from "react";
 import { MainView } from "./MainView";
 import { Route, Routes, useParams } from "react-router-dom";
 
