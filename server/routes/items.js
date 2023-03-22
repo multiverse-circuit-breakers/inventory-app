@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+const express = require('express')
+const router = express.Router()
+const { Item } = require('../models')
+
+//GET route for viewing all items
+router.get('/', async (req, res) => {
+    try {
+        const items = await Item.findAll()
+        res.send(items)
+    } catch (error){
+        console.error(error)
+    }
+});
+
+module.exports = router;
+=======
 const express = require("express");
 const router = express.Router();
 
@@ -69,3 +86,4 @@ router.delete("/:id", async (req, res) => {
   res.json(deleteItem);
 })
 module.exports = router;
+>>>>>>> d2ec51321e9d229edf0537086ba10ad31a5ac7a3
