@@ -2,15 +2,22 @@ import apiURL from "../api";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // link to edit button + delete button
 const ActionButtons = ({ id }) => {
+  const redirect = useNavigate();
+
   const deleteAction = async () => {
-    await fetch(`${apiURL}/items/${id}`, {
-      method: "DELETE",
-    });
-    // go back home after delete
-    redirect("/");
+    try {
+      await fetch(`${apiURL}/items/${id}`, {
+        method: "DELETE",
+      });
+      // go back home after delete
+      console.log("deleted item", id);
+      redirect("/");
+    } catch (err) {
+      console.log("Error!", err);
+    }
   };
 
   return (
