@@ -5,9 +5,16 @@ const { Item } = require("../models");
 
 // get /items
 
-router.get("/", async (req, res) => {
-  res.json(await Item.findAll());
-});
+
+
+router.get('/items', async (res, req) => {
+  try {
+    const item = await Item.findByPk(req.params.id);
+    res.send(item);
+  } catch (error) {
+    console.error(error);
+  }
+})
 
 // POST /items
 router.post("/", async (req, res) => {
@@ -55,4 +62,10 @@ router.put("/:id", async (req, res) => {
   res.json(updatedItem);
 });
 
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  const findItem = await Item.findByPk(id);
+  const deleteItem = await findItem.destroy();
+  res.json(deleteItem);
+})
 module.exports = router;
