@@ -45,21 +45,13 @@ export const App = () => {
 
   return (
     <div>
-      <Link to="/">Home</Link>
-      <Link to="/items">items</Link>
-      {[1, 2, 3].map((id) => (
-        <Link to={`/item/${id}`}>Link to: {id}</Link>
-      ))}
       <Routes>
-        <Route
-          path="/"
-          element={
-            <main>
-              <h1>Home</h1>
-            </main>
-          }
-        />
-        <Route path="/item/:id" element={<ComponentWithID />} />
+        {/* TODO: this will link to an item component  */}
+        {/* Link will be inside itemslist in this format: */}
+        {/* {items.map((id) => ( */}
+        {/*   <Link to={`/item/${id}`}>Link to: {id}</Link> */}
+        {/* ))} */}
+        <Route path="/item/:id" element={<div></div>} />
       </Routes>
     </div>
   );
