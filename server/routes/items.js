@@ -47,6 +47,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+// GET item by id
+router.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const item = await Item.findByPk(id);
+    return res.json(item);
+  } catch (err) {
+    return res
+      .status(400)
+      .json({ message: "Something went wrong in your request", error: err });
+  }
+});
+
 // UPDATE /items/:id
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
