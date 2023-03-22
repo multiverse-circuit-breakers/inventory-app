@@ -1,6 +1,6 @@
 const express = require('express')
+const router = express.Router()
 const { Item } = require('../models')
-const router = express.Router();
 
 //GET route for viewing all items
 router.get('/', async (req, res) => {
@@ -14,13 +14,15 @@ router.get('/', async (req, res) => {
 
 // get /items
 router.get('/items', async (res, req) => {
+//GET route for viewing all items
+router.get("/", async (req, res) => {
   try {
-    const item = await Item.findByPk(req.params.id);
-    res.send(item);
+    const items = await Item.findAll();
+    res.send(items);
   } catch (error) {
     console.error(error);
   }
-})
+});
 
 // POST /items
 router.post("/", async (req, res) => {
@@ -75,4 +77,5 @@ router.delete("/:id", async (req, res) => {
   res.json(deleteItem);
 })
 
+});
 module.exports = router;
