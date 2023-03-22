@@ -1,6 +1,7 @@
 import apiURL from "../api";
 import { ItemsList } from "./ItemsList";
 import React, { useState, useEffect } from "react";
+import { NavBar } from './Navbar';
 
 // import and prepend the api url to any fetch calls
 
@@ -40,7 +41,7 @@ export const MainView = () => {
     <>
       <main>
         <h1 className="heading">Sauce Store</h1>
-        <h3 id="heading2">All things 🔥</h3>
+        <NavBar />
         <ItemsList items={items} />
       </main>
     </>

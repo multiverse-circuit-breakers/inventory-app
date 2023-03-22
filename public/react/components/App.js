@@ -2,6 +2,7 @@
 // main view should have itemslist etc
 import { MainView } from "./MainView";
 import { Route, Routes, useParams } from "react-router-dom";
+import { NavBar } from './Navbar';
 
 // this shows how to get id from url with useParam
 // Link will be inside itemslist in this format:
@@ -11,8 +12,6 @@ import { Route, Routes, useParams } from "react-router-dom";
 
 const Item = () => {
   const { id } = useParams();
-import { NavBar } from './Navbar'
-
   return (
     <div>
       <h1>This is the id: {id}</h1>

@@ -14,5 +14,5 @@ export const Item = (props) => {
         <p className='item-category'>Category: {props.item.category}</p>
     </ul>
   </>
-} 
+}
 	

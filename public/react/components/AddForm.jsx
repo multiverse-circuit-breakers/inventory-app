@@ -1,6 +1,3 @@
-// form to make a new post
-// request will be POSTed to /api/items
-
 import React, { useState } from "react";
 import apiURL from "../api";
 
@@ -12,6 +9,8 @@ const initialState = {
   image: "",
 };
 
+// form to make a new post
+// request will be POSTed to /api/items
 export const AddForm = () => {
   const [formObject, setFormObject] = useState(initialState);
 
