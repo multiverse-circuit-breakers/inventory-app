@@ -12,7 +12,7 @@ export const MainView = () => {
     try {
       const res = await fetch(`${apiURL}/items`);
       const itemsData = await res.json();
-      setItems(itemsData);
+      setItems(() => itemsData);
     } catch (err) {
       console.log("Error!", err);
     }
