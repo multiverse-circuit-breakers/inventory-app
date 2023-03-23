@@ -31,7 +31,11 @@ export const EditForm = () => {
   };
 
   return item ? (
-    <FormComponent initialState={item} submitFunction={submitFunction} />
+    <FormComponent
+      initialState={item}
+      submitFunction={submitFunction}
+      title={`Edit Item #${id}`}
+    />
   ) : (
     <p>Loading...</p>
   );

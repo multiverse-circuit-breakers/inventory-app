@@ -41,6 +41,7 @@ export const AddForm = () => {
     <FormComponent
       initialState={initialState}
       submitFunction={submitFunction}
+      title={"Add Item"}
     />
   );
 };
