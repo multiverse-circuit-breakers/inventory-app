@@ -1,5 +1,5 @@
-const { Sequelize } = require("sequelize");
-const { sequelize } = require("../db");
+const {Sequelize} = require('sequelize')
+const {sequelize} = require('../db')
 
 const Sauce = sequelize.define("sauces", {
   name: Sequelize.STRING,
@@ -17,5 +17,5 @@ const Item = sequelize.define("items", {
 module.exports = {
   db: sequelize,
   Sauce,
-  Item,
+  Item
 };

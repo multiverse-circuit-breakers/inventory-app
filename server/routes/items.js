@@ -1,7 +1,19 @@
-const express = require("express");
-const router = express.Router();
-const { Item } = require("../models");
+const express = require('express')
+const router = express.Router()
+const { Item } = require('../models')
 
+//GET route for viewing all items
+router.get('/', async (req, res) => {
+    try {
+        const items = await Item.findAll()
+        res.send(items)
+    } catch (error){
+        console.error(error)
+    }
+});
+
+// get /items
+router.get('/items', async (res, req) => {
 //GET route for viewing all items
 router.get("/", async (req, res) => {
   try {
@@ -79,4 +91,7 @@ router.delete("/:id", async (req, res) => {
   const deleteItem = await findItem.destroy();
   res.json(deleteItem);
 });
+
+});
+
 module.exports = router;
