@@ -57,7 +57,7 @@
 }
 
 .item-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #466344;
   text-align: center;
@@ -73,11 +73,11 @@
 }
 
 .item-price {
-  font-size: large;
+  font-size: 1.2em;
   text-align: center;
   font-weight: bold;
   font-style: oblique;
-  padding: 4%;
+  padding: 3%;
   background-color: #F2F2F2;
 }
 
@@ -156,4 +156,16 @@ li a:hover {
   text-align: center;
   font-size: 1.2em;
   font-weight: bold;
+}
+
+.single-view {
+  color: #2A3C29;
+}
+
+.single-view:hover {
+   color: #AD9B7F;
+}
+
+.single-view:visited {
+  color: #2A3C29;
 }

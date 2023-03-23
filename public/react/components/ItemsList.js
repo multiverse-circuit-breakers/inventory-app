@@ -6,7 +6,7 @@ export const ItemsList = ({ items }) => {
   return (
     <>
       {items.map((item) => (
-        <Link key={item.id} to={`/item/${item.id}`}>
+        <Link className='single-view' key={item.id} to={`/item/${item.id}`}>
           <Item item={item} key={item.title} />
         </Link>
       ))}
