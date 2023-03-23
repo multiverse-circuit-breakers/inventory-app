@@ -30,8 +30,6 @@ export const AddForm = () => {
         body: JSON.stringify(formObject),
       });
 
-      // reset form
-      // TODO: redirect back to home
       redirect("/");
     } catch (err) {
       console.log(err);
