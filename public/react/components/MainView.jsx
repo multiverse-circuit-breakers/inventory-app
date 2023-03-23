@@ -1,7 +1,7 @@
 import apiURL from "../api";
 import { ItemsList } from "./ItemsList";
-import React, { useState, useEffect } from "react";
-import { NavBar } from './Navbar';
+import React, { useState, useEffect, useMemo } from "react";
+import { NavBar } from "./Navbar";
 import { Link } from "react-router-dom";
 // import and prepend the api url to any fetch calls
 
@@ -23,19 +23,35 @@ export const MainView = () => {
     fetchItems();
   }, []);
 
-  return items ? (
+  const categories = useMemo(() => {
+    if (!items) return null;
+    const categories = {};
+    items.forEach((item) => {
+      if (!categories[item.category]) {
+        categories[item.category] = [];
+      }
+      categories[item.category].push(item);
+    });
+    return categories;
+  }, [items]);
+
+  return categories ? (
     <>
       <main>
         <h1 className="heading">Sauce Store</h1>
-        <div><hr className="item-div-line"></hr></div>
-        <NavBar />
-        <div><hr className="item-div-line2"></hr></div>
+        <div>
+          <hr className="item-div-line"></hr>
+        </div>
+        <NavBar categories={categories} />
+        <div>
+          <hr className="item-div-line2"></hr>
+        </div>
         <div className="wrapper">
-          <ItemsList items={items} />
+          <ItemsList items={categories} />
         </div>
       </main>
       <Link to="/item/add">
-        <button className='main-button'>Add Item</button>
+        <button className="main-button">Add Item</button>
       </Link>
     </>
   ) : (
