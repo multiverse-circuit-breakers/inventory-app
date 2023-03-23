@@ -18,11 +18,13 @@ export const ActionButtons = ({ id }) => {
   };
 
   return (
-    <div>
+    <div className="buttons-class">
       <Link to={`/item/${id}/edit`}>
-        <button className='edit-button'>Edit</button>
+        <button className="edit-button">Edit</button>
       </Link>
-      <button onClick={deleteAction} className='delete-button'>Delete</button>
+      <button onClick={deleteAction} className="delete-button">
+        Delete
+      </button>
     </div>
   );
 };
