@@ -5,11 +5,17 @@ export const FullItemView = ({ item, actionButtons }) => {
       <h3 className="category-header">Category: {item.category}</h3>
       <img className= "individual-img"src={item.image} alt={item.title} />
       <div className="button-flex">
+        
       {actionButtons}
+      
       </div>
       <div className="text-flex">
-      <p className="descriptive-text">Price: ${item.price}</p>
-      <p className="descriptive-text">{item.description}</p>
+        <div className="p-div1">
+      <p  className="descriptive-text1">Price: ${item.price}</p>
+      </div>
+      <div className="p-div2">
+      <p className="descriptive-text2">{item.description}</p>
+      </div>
       </div>
     </div>
   ) : (
