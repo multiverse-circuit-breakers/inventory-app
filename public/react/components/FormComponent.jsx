@@ -9,7 +9,7 @@ import { FullItemView } from "./FullItemView";
 
 // form to make a new post
 // request will be POSTed to /api/items
-export const FormComponent = ({ initialState, submitFunction }) => {
+export const FormComponent = ({ initialState, submitFunction, title }) => {
   const [formObject, setFormObject] = useState(initialState);
 
   const handleChange = (event) => {
@@ -24,7 +24,7 @@ export const FormComponent = ({ initialState, submitFunction }) => {
 
   return (
     <div className="form-wrapper">
-      <h1>Form Title - Add Later</h1>
+      <h1>{title}</h1>
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
@@ -68,7 +68,9 @@ export const FormComponent = ({ initialState, submitFunction }) => {
         />
         <button type="submit">Submit Form</button>
       </form>
-      <FullItemView item={formObject} />
+      <div className="form-item-view">
+        <FullItemView item={formObject} />
+      </div>
     </div>
   );
 };
