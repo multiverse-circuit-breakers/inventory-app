@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
+import useItem from "../useItem";
 // link to edit button + delete button
 const ActionButtons = ({ id }) => {
   const redirect = useNavigate();
@@ -31,20 +32,10 @@ const ActionButtons = ({ id }) => {
 };
 
 export const SingleItemView = () => {
-  const [item, setItem] = useState(null);
   const { id } = useParams();
-
-  const fetchItem = async () => {
-    console.log("fetching item", id);
-    const res = await fetch(`${apiURL}/items/${id}`);
-    const data = await res.json();
-    setItem(() => data);
-  };
+  const item = useItem(id);
 
   // on render fetch the item from the db
-  useEffect(() => {
-    fetchItem();
-  }, []);
 
   return item ? (
     <div>
