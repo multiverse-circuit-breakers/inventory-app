@@ -18,7 +18,7 @@ export const ActionButtons = ({ id }) => {
   };
 
   return (
-    <div className="buttons-class">
+    <div className="button-flex">
       <Link to={`/item/${id}/edit`}>
         <button className="edit-button">Edit</button>
       </Link>
