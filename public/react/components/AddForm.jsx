@@ -22,7 +22,7 @@ export const AddForm = () => {
     // prevent form from refreshing page
     // e.preventDefault();
     try {
-      await fetch(`${apiURL}/items`, {
+      const res = await fetch(`${apiURL}/items`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +30,8 @@ export const AddForm = () => {
         body: JSON.stringify(formObject),
       });
 
-      redirect("/");
+      const data = await res.json();
+      redirect(`/item/${data.id}`);
     } catch (err) {
       console.log(err);
     }
