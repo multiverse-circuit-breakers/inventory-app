@@ -3,6 +3,9 @@
 import { MainView } from "./MainView";
 import { Route, Routes, useParams } from "react-router-dom";
 import { NavBar } from './Navbar';
+import { SingleItemView } from "./SingleItemView";
+import { EditForm } from "./EditForm";
+import { AddForm } from "./AddForm";
 
 // this shows how to get id from url with useParam
 // Link will be inside itemslist in this format:
@@ -10,7 +13,7 @@ import { NavBar } from './Navbar';
 //   <Link to={`/item/${id}`}>Link to: {id}</Link>
 // ))}
 
-const Item = () => {
+export const Item = () => {
   const { id } = useParams();
   return (
     <div>
@@ -25,7 +28,9 @@ export const App = () => {
     <main>
       <Routes>
         <Route path="/" element={<MainView />} />
-        <Route path="/item/:id" element={<Item />} />
+        <Route path="/item/:id" element={<SingleItemView />} />
+        <Route path="/item/:id/edit" element={<EditForm />} />
+        <Route path="/item/add" element={<AddForm />} />
       </Routes>
     </main>
   );
