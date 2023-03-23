@@ -3,6 +3,7 @@ import apiURL from "../api";
 
 // redirect sends back to the id view after form is done
 import { useNavigate } from "react-router-dom";
+import { FormComponent } from "./FormComponent";
 
 const initialState = {
   title: "",
@@ -15,14 +16,13 @@ const initialState = {
 // form to make a new post
 // request will be POSTed to /api/items
 export const AddForm = () => {
-  const [formObject, setFormObject] = useState(initialState);
   const redirect = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const submitFunction = async (formObject) => {
     // prevent form from refreshing page
-    e.preventDefault();
+    // e.preventDefault();
     try {
-      await fetch(`${apiURL}/items`, {
+      const res = await fetch(`${apiURL}/items`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,62 +30,17 @@ export const AddForm = () => {
         body: JSON.stringify(formObject),
       });
 
-      // reset form
-      // TODO: redirect back to home
-      redirect("/");
+      const data = await res.json();
+      redirect(`/item/${data.id}`);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value });
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input
-        type="text"
-        name="title"
-        value={formObject.title}
-        onChange={handleChange}
-        required
-      />
-      <label htmlFor="description">Description</label>
-      <input
-        type="text"
-        name="description"
-        required
-        value={formObject.description}
-        onChange={handleChange}
-      />
-      <label htmlFor="price">Price</label>
-      <input
-        type="number"
-        name="price"
-        required
-        value={formObject.price}
-        onChange={handleChange}
-      />
-      <label htmlFor="category">Category</label>
-      <input
-        type="text"
-        name="category"
-        required
-        value={formObject.category}
-        onChange={handleChange}
-      />
-      <label htmlFor="image">Link to Image</label>
-      <input
-        type="text"
-        name="image"
-        required
-        value={formObject.image}
-        onChange={handleChange}
-      />
-      <button type="submit">Submit New Item</button>
-    </form>
+    <FormComponent
+      initialState={initialState}
+      submitFunction={submitFunction}
+    />
   );
 };

@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react";
 
-export const NavBar = () => {
-    return ( <>
-        <nav className="nav">
-            <ul>
-                <li><a href='/Men'>Men</a></li>
-                <li><a href='/Women'>Women</a></li>
-                <li><a href='/Accessories'>Accessories</a></li>
-            </ul>
-        </nav>
-    </> )
-}
+export const NavBar = ({ categories }) => {
+  return (
+    <nav className="nav">
+      <ul>
+        {Object.keys(categories).map((category) => (
+          <li key={category}>
+            <a href={`#${category}`}>{category}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
