@@ -23,7 +23,7 @@ export const EditForm = () => {
 
   const submitFunction = async (formObject) => {
     try {
-      const res = await fetch(`${apiURL}/items/${id}`, {
+      await fetch(`${apiURL}/items/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
