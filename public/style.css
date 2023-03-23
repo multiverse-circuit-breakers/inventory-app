@@ -21,10 +21,9 @@
 /* div on all of the items */
 .wrapper {
   display: flex;
+  border: 3px solid red;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: auto;
-  padding: auto;
   justify-content: center;
 }
 

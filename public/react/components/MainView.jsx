@@ -28,7 +28,9 @@ export const MainView = () => {
       <main>
         <h1 className="heading">Sauce Store</h1>
         <NavBar />
-        <ItemsList items={items} />
+        <div className="wrapper">
+          <ItemsList items={items} />
+        </div>
       </main>
       <Link to="/item/add">
         <button>Add Item</button>
