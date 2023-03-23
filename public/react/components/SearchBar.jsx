@@ -5,10 +5,11 @@ export const SearchBar = ({ updateSearch }) => {
   useEffect(() => {
     updateSearch(search);
   }, [search]);
+
   return (
       <input className="search-bar"
         type="text"
-        placeholder="Search:"
+        placeholder=" Search:"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
