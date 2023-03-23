@@ -45,7 +45,6 @@ export const MainView = () => {
   return allItems ? (
     <>
       <main>
-        <SearchBar updateSearch={updateSearch} />
         <h1 className="heading">Sauce Store</h1>
         <div>
           <hr className="item-div-line"></hr>
@@ -54,6 +53,7 @@ export const MainView = () => {
         <div>
           <hr className="item-div-line2"></hr>
         </div>
+        <div className="search-bar-div"><SearchBar updateSearch={updateSearch} /></div>
         <div className="wrapper">
           <ItemsList items={categories} />
         </div>
