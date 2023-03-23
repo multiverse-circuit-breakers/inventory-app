@@ -4,6 +4,9 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
+// redirect sends back to the id view after form is done
+import { useNavigate } from "react-router-dom";
+
 const initialState = {
   title: "",
   description: "",
@@ -14,6 +17,7 @@ const initialState = {
 
 export const AddForm = () => {
   const [formObject, setFormObject] = useState(initialState);
+  const redirect = useNavigate();
 
   const handleSubmit = async (e) => {
     // prevent form from refreshing page
@@ -28,8 +32,8 @@ export const AddForm = () => {
       });
 
       // reset form
-      useState({ ...initialState });
       // TODO: redirect back to home
+      redirect("/");
     } catch (err) {
       console.log(err);
     }

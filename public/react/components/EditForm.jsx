@@ -2,11 +2,16 @@
 // Item props are
 import apiURL from "../api";
 
+// redirect sends back to the id view after form is done
+import { useParams, useNavigate } from "react-router-dom";
 const itemPropList = ["title", "description", "price", "category", "image"];
 
 // Form should have option selector which sets state to whatever property needs to change
 import React, { useState } from "react";
-export const EditForm = ({ id }) => {
+export const EditForm = () => {
+  const { id } = useParams();
+  const redirect = useNavigate();
+
   const [currentItemProp, setCurrentItemProp] = useState(itemPropList[0]);
   const [currentItemValue, setCurrentItemValue] = useState("");
 
@@ -35,8 +40,7 @@ export const EditForm = ({ id }) => {
       } else {
         alert("Item Updated Successfully");
       }
-      setCurrentItemProp(itemPropList[0]);
-      setCurrentItemValue("");
+      redirect(`/item/${id}`);
     } catch (err) {
       console.log(err);
     }
