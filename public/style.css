@@ -10,6 +10,16 @@ html {
   scroll-behavior: smooth;
 }
 
+.home {
+  width: 5%;
+  height: 5%;
+  fill: #000000;
+}
+
+.home:hover {
+  fill: var(--lightgreen);
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
