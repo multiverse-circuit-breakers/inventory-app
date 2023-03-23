@@ -3,6 +3,7 @@
 // it will return a live updating display on the side and a form on the right
 
 import React, { useState } from "react";
+import { FullItemView } from "./FullItemView";
 
 // redirect sends back to the id view after form is done
 
@@ -66,7 +67,7 @@ export const FormComponent = ({ initialState, submitFunction }) => {
         />
         <button type="submit">Submit Form</button>
       </form>
-      {/* TODO: add live updating item here  */}
+      <FullItemView item={formObject} />
     </div>
   );
 };
