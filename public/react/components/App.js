@@ -2,7 +2,7 @@
 // main view should have itemslist etc
 import { MainView } from "./MainView";
 import { Route, Routes } from "react-router-dom";
-import { SingleItemView } from "./SingleItemView";
+import { ItemPageView } from "./ItemPageView";
 import { EditForm } from "./EditForm";
 import { AddForm } from "./AddForm";
 
@@ -18,7 +18,7 @@ export const App = () => {
     <main>
       <Routes>
         <Route path="/" element={<MainView />} />
-        <Route path="/item/:id" element={<SingleItemView />} />
+        <Route path="/item/:id" element={<ItemPageView />} />
         <Route path="/item/:id/edit" element={<EditForm />} />
         <Route path="/item/add" element={<AddForm />} />
       </Routes>
