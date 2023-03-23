@@ -12,7 +12,7 @@ export const Item = (props) => {
         <h1 className='item-title'>{props.item.title}</h1>
         {/* <h3 className='item-description'>{props.item.description}</h3> */}
         <h4 className='item-price'>${props.item.price}</h4>
-        <p className='item-category'>Category: {props.item.category}</p>
+        <div><p className='item-category'>{props.item.category}</p></div>
     </ul>
   </>
 }
