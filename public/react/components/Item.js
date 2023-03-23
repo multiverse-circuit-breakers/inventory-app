@@ -1,5 +1,6 @@
 import React from 'react';
 
+//component for each item card
 export const Item = (props) => {
 
   console.log(props.item.title)

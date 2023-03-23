@@ -27,13 +27,15 @@ export const MainView = () => {
     <>
       <main>
         <h1 className="heading">Sauce Store</h1>
+        <div><hr className="item-div-line"></hr></div>
         <NavBar />
+        <div><hr className="item-div-line2"></hr></div>
         <div className="wrapper">
           <ItemsList items={items} />
         </div>
       </main>
       <Link to="/item/add">
-        <button>Add Item</button>
+        <button className='main-button'>Add Item</button>
       </Link>
     </>
   ) : (
