@@ -6,10 +6,11 @@ export const SearchBar = ({ updateSearch }) => {
     updateSearch(search);
   }, [search]);
   return (
-    <input
-      type="text"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-    />
+      <input className="search-bar"
+        type="text"
+        placeholder="Search:"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
   );
 };

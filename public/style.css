@@ -219,3 +219,18 @@ li a:hover {
   text-decoration: underline;
   color: #F2F2F2;
 }
+
+.search-bar {
+  border: 2px solid #957777;
+  height: 2.5em;
+  width: 14%;
+  border-radius: 3px;
+  color: var(--white);
+}
+
+.search-bar-div {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 5%;
+  margin-top: 0.7%;
+}
