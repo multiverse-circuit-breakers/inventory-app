@@ -1,8 +1,7 @@
 //  this file (app) should only have routes
 // main view should have itemslist etc
 import { MainView } from "./MainView";
-import { Route, Routes, useParams } from "react-router-dom";
-import { NavBar } from './Navbar';
+import { Route, Routes } from "react-router-dom";
 import { SingleItemView } from "./SingleItemView";
 import { EditForm } from "./EditForm";
 import { AddForm } from "./AddForm";
@@ -12,15 +11,6 @@ import { AddForm } from "./AddForm";
 // {items.map((id) => (
 //   <Link to={`/item/${id}`}>Link to: {id}</Link>
 // ))}
-
-export const Item = () => {
-  const { id } = useParams();
-  return (
-    <div>
-      <h1>This is the id: {id}</h1>
-    </div>
-  );
-};
 
 export const App = () => {
   // routes is how react-router renders the element and changes the url without reloading the page
