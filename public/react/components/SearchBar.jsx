@@ -3,7 +3,6 @@ export const SearchBar = ({ updateSearch }) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    if (!search) return;
     updateSearch(search);
   }, [search]);
   return (
