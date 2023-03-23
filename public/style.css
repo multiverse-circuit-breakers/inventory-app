@@ -177,7 +177,12 @@ li a:hover {
   color: var(--darkgreen);
 }
 
+.form-wrapper {
+  display: flex;
+}
+
 .form {
   display: flex;
+  flex-direction: column;
   color: var(--white);
 }

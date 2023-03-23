@@ -23,7 +23,7 @@ export const FormComponent = ({ initialState, submitFunction }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
           type="text"
