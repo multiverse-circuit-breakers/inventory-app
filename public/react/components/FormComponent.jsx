@@ -23,7 +23,8 @@ export const FormComponent = ({ initialState, submitFunction }) => {
   };
 
   return (
-    <div>
+    <div className="form-wrapper">
+      <h1>Form Title - Add Later</h1>
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
@@ -34,7 +35,7 @@ export const FormComponent = ({ initialState, submitFunction }) => {
           required
         />
         <label htmlFor="description">Description</label>
-        <input
+        <textarea
           type="text"
           name="description"
           required
